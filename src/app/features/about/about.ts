@@ -17,10 +17,10 @@ export class About {
 
   protected readonly legalDetails = [
     { label: 'Registered name', value: 'Kuukua Davis Foundation' },
-    { label: 'Registration number', value: 'Placeholder — TBC' },
+    { label: 'Registration number', value: 'CG053920826' },
     { label: 'Country of registration', value: 'Ghana' },
     { label: 'Date incorporated', value: 'Placeholder — TBC' },
-    { label: 'Tax identification number', value: 'Placeholder — TBC' },
+    { label: 'Tax identification number', value: 'C0067748503' },
     { label: 'Registered address', value: 'Takoradi, Ghana' },
   ];
 }
