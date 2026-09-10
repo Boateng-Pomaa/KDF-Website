@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+.page-title {
+  font-size: 56px;
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+  max-width: 24ch;
+}
+
+.section-lede {
+  margin-bottom: var(--space-6);
+}
+
+.photo-image {
+  height: 220px;
+}
+
+.photo-caption {
+  padding: var(--space-4);
+}
+
+.photo-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.photo-subcaption {
+  font-size: 13px;
+  color: var(--color-neutral-600);
+}

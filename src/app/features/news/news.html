@@ -1,0 +1,55 @@
+<section class="section">
+  <p class="section-eyebrow">News &amp; activities</p>
+  <h1 class="page-title">Latest activities</h1>
+  <p class="section-lede">
+    What happened, where, and who turned up. Categories and publication dates are CMS-managed.
+  </p>
+</section>
+
+@if (selectedArticle(); as article) {
+  <section class="section">
+    <button type="button" class="back-link" (click)="back()">← Back to all activities</button>
+    <div class="duotone article-image">
+      <img
+        [ngSrc]="article.image"
+        [width]="article.imageWidth"
+        [height]="article.imageHeight"
+        [alt]="article.imageAlt"
+        priority
+      />
+    </div>
+    <div class="article-kicker">
+      {{ article.category }} · {{ article.date }}{{ article.location ? ' · ' + article.location : '' }}
+    </div>
+    <h2>{{ article.title }}</h2>
+    <p class="article-body">{{ article.body }}</p>
+  </section>
+} @else {
+  <section class="news-list">
+    @for (item of newsItems; track item.id) {
+      <article class="news-row">
+        <div class="duotone news-row-image">
+          <img
+            [ngSrc]="item.image"
+            [width]="item.imageWidth"
+            [height]="item.imageHeight"
+            [alt]="item.imageAlt"
+          />
+        </div>
+        <div>
+          <div class="news-row-kicker">{{ item.category }} · {{ item.date }}</div>
+          <h3>
+            <button type="button" class="news-row-title" (click)="select(item.id)">
+              {{ item.title }}
+            </button>
+          </h3>
+          <p class="news-row-summary">{{ item.summary }}</p>
+        </div>
+      </article>
+    }
+  </section>
+
+  <section class="section pagination-note">
+    <app-tag outline>Older activities — pagination handled by CMS</app-tag>
+  </section>
+}

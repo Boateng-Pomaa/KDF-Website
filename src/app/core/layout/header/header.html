@@ -1,0 +1,17 @@
+<header class="site-header">
+  <a class="brand" routerLink="/">
+    <img ngSrc="kdf-logo.png" width="38" height="38" alt="" priority />
+    <span class="brand-name">Kuukua Davis Foundation</span>
+  </a>
+
+  <nav class="site-nav" aria-label="Primary">
+    <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/about" routerLinkActive="is-active">About</a>
+    <a routerLink="/programs" routerLinkActive="is-active">Programs</a>
+    <a routerLink="/news" routerLinkActive="is-active">News</a>
+    <a routerLink="/gallery" routerLinkActive="is-active">Gallery</a>
+    <a routerLink="/contact" routerLinkActive="is-active">Contact</a>
+  </nav>
+
+  <a appButton variant="primary" class="header-donate" routerLink="/" fragment="donate">Donate</a>
+</header>

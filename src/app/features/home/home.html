@@ -1,0 +1,337 @@
+<section class="hero section">
+  <div class="hero-copy">
+    <p class="section-eyebrow">Community service · Ghana</p>
+    <h1>Clean streets,<br />fed families,<br />neighbours who<br />show up.</h1>
+    <p class="hero-lede">
+      The Kuukua Davis Foundation mobilises volunteers for community clean-ups, donation drives
+      and neighbourhood support — one community at a time.
+    </p>
+    <app-tag outline>Placeholder mission line — client to supply final wording</app-tag>
+    <div class="cta-row">
+      <a appButton variant="primary" routerLink="/" fragment="donate">Donate now</a>
+      <a appButton variant="secondary" routerLink="/" fragment="involved">Volunteer</a>
+      <a appButton variant="ghost" routerLink="/" fragment="partner">Partner with us</a>
+    </div>
+  </div>
+  <div class="hero-image duotone">
+    <img
+      ngSrc="images/group-wide.png"
+      width="1143"
+      height="702"
+      alt="KDF volunteers after a community clean-up"
+      priority
+    />
+  </div>
+</section>
+
+<section class="section">
+  <p class="section-eyebrow">Impact to date</p>
+  <div class="grid-4">
+    @for (stat of impactStats; track stat.label) {
+      <app-card>
+        <div class="stat-value">{{ stat.value }}</div>
+        <div class="stat-label">{{ stat.label }}</div>
+      </app-card>
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading-row">
+    <h2>Areas of work</h2>
+    <a class="see-all" routerLink="/programs">All programs →</a>
+  </div>
+  <p class="section-lede">Five areas we work in, across the communities we serve.</p>
+  <div class="grid-3">
+    @for (program of programs; track program.slug) {
+      <app-card>
+        <div class="program-number">{{ program.order }}</div>
+        <h3>{{ program.title }}</h3>
+        <p class="card-body">{{ program.summary }}</p>
+      </app-card>
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading-row">
+    <h2>Latest activities</h2>
+    <a class="see-all" routerLink="/news">All news →</a>
+  </div>
+  <p class="section-lede">What happened, where, and who turned up.</p>
+  <div class="grid-3">
+    @for (item of latestNews; track item.id) {
+      <app-card class="card-flush">
+        <div class="duotone news-teaser-image">
+          <img
+            [ngSrc]="item.image"
+            [width]="item.imageWidth"
+            [height]="item.imageHeight"
+            [alt]="item.imageAlt"
+          />
+        </div>
+        <div class="card-copy">
+          <div class="card-kicker">
+            {{ item.category }} · {{ item.date }}{{ item.location ? ' · ' + item.location : '' }}
+          </div>
+          <div class="card-title">{{ item.title }}</div>
+          <p class="card-body">{{ item.summary }}</p>
+          <a class="card-link" routerLink="/news">Read activity →</a>
+        </div>
+      </app-card>
+    }
+  </div>
+</section>
+
+<section class="split section-flush">
+  <div>
+    <p class="section-eyebrow">Founder's message</p>
+    <blockquote>
+      "We do not arrive with a plan for people. We arrive with tools, and we ask who wants to
+      work."
+    </blockquote>
+    <div class="founder-byline">
+      <div class="duotone founder-photo">
+        <img
+          ngSrc="images/team-portrait.png"
+          width="810"
+          height="1080"
+          alt="Kuukua Davis"
+        />
+      </div>
+      <div>
+        <div class="founder-name">Kuukua Davis</div>
+        <div class="founder-role">Founder — placeholder quote, client to supply</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p>
+      The Foundation began in 2019 with one wheelbarrow and a Saturday. Nine of the people who
+      joined that first clean-up still lead neighbourhood teams today.
+    </p>
+    <p>
+      Every site we work is chosen with residents, and every set of tools we buy stays in the
+      community after we leave.
+    </p>
+    <div class="cta-row">
+      <a appButton variant="secondary" routerLink="/about" fragment="board">Board &amp; trustees</a>
+      <a appButton variant="ghost" routerLink="/about" fragment="history">Our history</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-heading-row">
+    <h2>From the field</h2>
+    <a class="see-all" routerLink="/gallery">Full gallery →</a>
+  </div>
+  <div class="grid-3">
+    <app-card class="card-flush">
+      <div class="duotone gallery-teaser-image">
+        <img ngSrc="images/group-wide.png" width="1143" height="702" alt="Volunteers after a service day" />
+      </div>
+      <div class="gallery-teaser-caption">Kasoa · Aug 2026</div>
+    </app-card>
+    <app-card class="card-flush">
+      <div class="duotone gallery-teaser-image">
+        <img ngSrc="images/cleanup-1.jpg" width="1232" height="816" alt="Clearing overgrowth" />
+      </div>
+      <div class="gallery-teaser-caption">Community wall · Aug 2026</div>
+    </app-card>
+    <app-card class="card-flush">
+      <div class="duotone gallery-teaser-image">
+        <img ngSrc="images/team-portrait.png" width="810" height="1080" alt="Volunteer team with tools" />
+      </div>
+      <div class="gallery-teaser-caption">Service day · Aug 2026</div>
+    </app-card>
+  </div>
+  <p class="albums-note">Albums by programme and year — CMS-managed</p>
+</section>
+
+<section id="donate" class="split section-flush donate-section">
+  <div class="donate-pitch">
+    <p class="section-eyebrow donate-eyebrow">Donate</p>
+    <h2>GHS 50 buys one volunteer a broom and gloves.</h2>
+    <p class="donate-copy">
+      Give once or monthly. Every donation is receipted and reported in the quarterly impact
+      update.
+    </p>
+    <div class="spec-note">
+      <div class="spec-note-label">Spec note</div>
+      On-site donation flow. Payment provider and supported methods (Mobile Money, card) to be
+      confirmed with the client.
+    </div>
+  </div>
+
+  <form
+    class="donate-form"
+    [formGroup]="donateForm"
+    (submit)="onDonateSubmit(); $event.preventDefault()"
+  >
+    <div class="tab-group" role="group" aria-label="Donation frequency">
+      <button
+        type="button"
+        class="tab-button"
+        [class.is-active]="donateFrequency() === 'once'"
+        [attr.aria-pressed]="donateFrequency() === 'once'"
+        (click)="setDonateFrequency('once')"
+      >
+        One-time
+      </button>
+      <button
+        type="button"
+        class="tab-button"
+        [class.is-active]="donateFrequency() === 'monthly'"
+        [attr.aria-pressed]="donateFrequency() === 'monthly'"
+        (click)="setDonateFrequency('monthly')"
+      >
+        Monthly
+      </button>
+    </div>
+
+    <p class="amount-label" id="donate-amount-label">Amount (GHS)</p>
+    <div class="amount-grid" role="group" aria-labelledby="donate-amount-label">
+      @for (preset of presetAmounts; track preset) {
+        <button
+          type="button"
+          class="amount-button"
+          [class.is-active]="!donateCustomAmount() && donateAmount() === preset"
+          [attr.aria-pressed]="!donateCustomAmount() && donateAmount() === preset"
+          (click)="setDonateAmount(preset)"
+        >
+          {{ preset }}
+        </button>
+      }
+    </div>
+    <input
+      class="input other-amount"
+      placeholder="Other amount"
+      [value]="donateCustomAmount()"
+      (input)="onCustomAmountInput($event)"
+    />
+
+    <div class="grid-2">
+      <app-field
+        label="Full name"
+        placeholder="Ama Mensah"
+        formControlName="fullName"
+        required
+        [invalid]="isInvalid(donateForm, 'fullName')"
+        [hint]="isInvalid(donateForm, 'fullName') ? 'Please enter your name.' : ''"
+      />
+      <app-field
+        label="Email"
+        type="email"
+        placeholder="ama@example.com"
+        formControlName="email"
+        required
+        [invalid]="isInvalid(donateForm, 'email')"
+        [hint]="isInvalid(donateForm, 'email') ? 'Please enter a valid email.' : ''"
+      />
+    </div>
+    <div class="grid-2">
+      <app-field label="Phone" type="tel" placeholder="+233 20 000 0000" formControlName="phone" />
+      <app-field label="Payment method" placeholder="Mobile Money / Card" formControlName="paymentMethod" />
+    </div>
+
+    <button appButton variant="primary" block type="submit">{{ donateLabel() }}</button>
+
+    @if (donateSubmitted()) {
+      <p class="status-message" role="status">
+        Thanks — donation processing isn't connected yet; this will be wired up in Phase 8.
+      </p>
+    }
+    <p class="form-footnote">
+      A receipt is emailed on success. Failed and pending transactions are logged in the admin
+      portal.
+    </p>
+  </form>
+</section>
+
+<section id="involved" class="split section-flush">
+  <div>
+    <p class="section-eyebrow">Get involved</p>
+    <h3>Volunteer</h3>
+    <p class="form-intro">
+      Join a service day. Tell us where you are and what you can do, and we will place you with a
+      team.
+    </p>
+    <form [formGroup]="volunteerForm" (submit)="onVolunteerSubmit(); $event.preventDefault()">
+      <app-field
+        label="Name"
+        placeholder="Full name"
+        formControlName="name"
+        required
+        [invalid]="isInvalid(volunteerForm, 'name')"
+        [hint]="isInvalid(volunteerForm, 'name') ? 'Please enter your name.' : ''"
+      />
+      <div class="grid-2">
+        <app-field
+          label="Email"
+          type="email"
+          placeholder="you@example.com"
+          formControlName="email"
+          required
+          [invalid]="isInvalid(volunteerForm, 'email')"
+          [hint]="isInvalid(volunteerForm, 'email') ? 'Please enter a valid email.' : ''"
+        />
+        <app-field label="Phone" type="tel" placeholder="+233" formControlName="phone" />
+      </div>
+      <app-field
+        label="Area of interest"
+        placeholder="WASH, health, youth development"
+        formControlName="interest"
+      />
+      <app-field label="Availability" placeholder="Weekends" formControlName="availability" />
+      <button appButton variant="secondary" type="submit">Submit application</button>
+      @if (volunteerSubmitted()) {
+        <p class="status-message" role="status">
+          Thanks — submissions aren't connected yet; this will be wired up in Phase 4.
+        </p>
+      }
+    </form>
+  </div>
+
+  <div id="partner">
+    <p class="section-eyebrow">Partnerships</p>
+    <h3>Partner with us</h3>
+    <p class="form-intro">
+      Assemblies, companies and community groups fund sites, supply equipment or send staff teams.
+    </p>
+    <form [formGroup]="partnerForm" (submit)="onPartnerSubmit(); $event.preventDefault()">
+      <app-field
+        label="Organisation or person"
+        placeholder="Organisation name"
+        formControlName="organisation"
+        required
+        [invalid]="isInvalid(partnerForm, 'organisation')"
+        [hint]="isInvalid(partnerForm, 'organisation') ? 'Please enter a name.' : ''"
+      />
+      <div class="grid-2">
+        <app-field
+          label="Email"
+          type="email"
+          placeholder="name@org.com"
+          formControlName="email"
+          required
+          [invalid]="isInvalid(partnerForm, 'email')"
+          [hint]="isInvalid(partnerForm, 'email') ? 'Please enter a valid email.' : ''"
+        />
+        <app-field label="Phone" type="tel" placeholder="+233" formControlName="phone" />
+      </div>
+      <app-field
+        label="Partnership interest"
+        placeholder="Funding, equipment, staff volunteering"
+        formControlName="interest"
+      />
+      <app-field label="Message" placeholder="Tell us more" formControlName="message" />
+      <button appButton variant="secondary" type="submit">Send inquiry</button>
+      @if (partnerSubmitted()) {
+        <p class="status-message" role="status">
+          Thanks — submissions aren't connected yet; this will be wired up in Phase 4.
+        </p>
+      }
+    </form>
+  </div>
+</section>

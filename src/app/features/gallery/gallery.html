@@ -1,0 +1,42 @@
+<section class="section">
+  <p class="section-eyebrow">From the field</p>
+  <h1 class="page-title">Gallery</h1>
+  <p class="section-lede">
+    Photos are placeholder repeats of our three reference images, standing in for a fuller
+    CMS-managed library.
+  </p>
+  <div class="filter-group" role="group" aria-label="Filter by programme">
+    @for (filter of filters; track filter.value) {
+      <button
+        type="button"
+        class="tab-button"
+        [class.is-active]="activeFilter() === filter.value"
+        [attr.aria-pressed]="activeFilter() === filter.value"
+        (click)="setFilter(filter.value)"
+      >
+        {{ filter.label }}
+      </button>
+    }
+  </div>
+</section>
+
+<section class="section">
+  <div class="grid-3">
+    @for (photo of filteredPhotos(); track photo.id) {
+      <app-card class="card-flush">
+        <div class="duotone photo-image">
+          <img
+            [ngSrc]="photo.image"
+            [width]="photo.imageWidth"
+            [height]="photo.imageHeight"
+            [alt]="photo.imageAlt"
+          />
+        </div>
+        <div class="photo-caption">
+          <div class="photo-label">{{ photo.label }}</div>
+          <div class="photo-subcaption">{{ photo.caption }}</div>
+        </div>
+      </app-card>
+    }
+  </div>
+</section>

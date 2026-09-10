@@ -1,0 +1,118 @@
+<section class="section">
+  <p class="section-eyebrow">About us</p>
+  <h1 class="page-title">Who we are, and why we work this way.</h1>
+  <span class="placeholder-note">Placeholder overview — client to supply final wording</span>
+</section>
+
+<section class="split">
+  <div>
+    <p class="section-eyebrow">Vision</p>
+    <p class="lead-statement lead-statement--wide">
+      To build an empowered, inclusive and sustainable society where women, children and
+      vulnerable people have equal opportunities to thrive, participate in decision-making, and
+      contribute meaningfully to the development of their communities.
+    </p>
+  </div>
+  <div>
+    <p class="section-eyebrow">Mission</p>
+    <p class="lead-statement lead-statement--wide">
+      To empower women, children, youth and vulnerable people through education, skills
+      development, advocacy, health awareness and community-based initiatives, while building
+      strong partnerships that promote equality, dignity, self-reliance and sustainable
+      development in Ghana.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Core values</h2>
+  <p class="section-lede">Descriptions for each value are placeholder — client to supply final wording.</p>
+  <div class="grid-4 core-values">
+    @for (value of coreValues; track value.title) {
+      <app-card>
+        <div class="value-title">{{ value.title }}</div>
+        <p class="card-body">{{ value.description }}</p>
+      </app-card>
+    }
+  </div>
+</section>
+
+<section id="history" class="split">
+  <div>
+    <p class="section-eyebrow">History &amp; background</p>
+    <h3>Placeholder founding story</h3>
+    <span class="placeholder-note">Placeholder — client to supply final wording</span>
+  </div>
+  <div>
+    <p>
+      Placeholder paragraph describing how and when the Foundation began, and what prompted its
+      founding.
+    </p>
+    <p>Placeholder paragraph on key milestones since — client to supply dates and details.</p>
+  </div>
+</section>
+
+<section class="split">
+  <div>
+    <p class="section-eyebrow">Founder's message</p>
+    <blockquote>
+      "We do not arrive with a plan for people. We arrive with tools, and we ask who wants to
+      work."
+    </blockquote>
+    <div class="founder-byline">
+      <div class="duotone founder-photo">
+        <img ngSrc="images/team-portrait.png" width="810" height="1080" alt="Kuukua Davis" />
+      </div>
+      <div>
+        <div class="founder-name">Kuukua Davis</div>
+        <div class="founder-role">Founder — placeholder quote, client to supply</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <p>Placeholder — client to supply the founder's full message.</p>
+  </div>
+</section>
+
+<section id="board" class="section">
+  <h2>Board of directors / trustees</h2>
+  <p class="section-lede">Placeholder roster — client to supply names and roles.</p>
+  <div class="grid-4">
+    @for (member of boardMembers; track member.name + member.role) {
+      <app-card>
+        <div class="avatar-initials">{{ member.initials }}</div>
+        <div class="person-name">{{ member.name }}</div>
+        <div class="person-role">{{ member.role }}</div>
+      </app-card>
+    }
+  </div>
+</section>
+
+<section class="section">
+  <h2>Staff &amp; leadership</h2>
+  <p class="section-lede">Placeholder team — client to supply names and roles.</p>
+  <div class="grid-4">
+    @for (member of staffMembers; track member.name + member.role) {
+      <app-card>
+        <div class="avatar-initials">{{ member.initials }}</div>
+        <div class="person-name">{{ member.name }}</div>
+        <div class="person-role">{{ member.role }}</div>
+      </app-card>
+    }
+  </div>
+</section>
+
+<section id="legal" class="section">
+  <h2>Legal &amp; registration information</h2>
+  <p class="section-lede">Placeholder — client to supply registration details.</p>
+  <app-card class="legal-card">
+    <div class="legal-grid">
+      @for (detail of legalDetails; track detail.label) {
+        <div>
+          <div class="legal-label">{{ detail.label }}</div>
+          <div class="legal-value">{{ detail.value }}</div>
+        </div>
+      }
+    </div>
+  </app-card>
+</section>

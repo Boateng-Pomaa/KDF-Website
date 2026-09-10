@@ -1,0 +1,216 @@
+:host {
+  display: block;
+}
+
+.section-flush {
+  padding: 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: var(--space-8);
+}
+
+.hero-copy h1 {
+  font-size: 64px;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-4);
+}
+
+.hero-lede {
+  max-width: 48ch;
+  color: var(--color-neutral-800);
+  font-size: 17px;
+}
+
+.hero-image {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--color-divider);
+  border-radius: 14px;
+}
+
+.cta-row {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-top: var(--space-6);
+}
+
+.program-number {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 0.72;
+  color: var(--color-accent);
+}
+
+.card-copy {
+  padding: var(--space-6);
+}
+
+.card-kicker {
+  font-size: 12px;
+  color: var(--color-neutral-600);
+  margin-bottom: var(--space-2);
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.15;
+  margin-bottom: var(--space-2);
+}
+
+.card-body {
+  font-size: 14px;
+  color: var(--color-neutral-700);
+  margin: 0 0 var(--space-2);
+}
+
+.card-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-accent-700);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.news-teaser-image {
+  height: 190px;
+}
+
+.gallery-teaser-image {
+  height: 220px;
+}
+
+.gallery-teaser-caption {
+  padding: var(--space-3) var(--space-4);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-neutral-600);
+}
+
+.albums-note {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-neutral-600);
+  margin-top: var(--space-4);
+}
+
+blockquote {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.18;
+  margin: 0 0 var(--space-6);
+}
+
+.founder-byline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.founder-photo {
+  width: 66px;
+  height: 66px;
+  flex: none;
+  border: 1px solid var(--color-divider);
+  border-radius: 50%;
+}
+
+.founder-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.founder-role {
+  font-size: 13px;
+  color: var(--color-neutral-600);
+}
+
+/* Donate section */
+.donate-section {
+  border-top: 1px solid var(--color-divider);
+}
+
+.donate-pitch {
+  background: var(--color-accent-900);
+  color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.donate-pitch h2 {
+  font-size: 44px;
+  line-height: 0.95;
+}
+
+.donate-eyebrow {
+  color: var(--color-accent-300);
+}
+
+.donate-copy {
+  max-width: 36ch;
+  color: rgba(242, 242, 243, 0.82);
+  margin-bottom: auto;
+}
+
+.spec-note {
+  border-top: 1px solid rgba(242, 242, 243, 0.3);
+  padding-top: var(--space-4);
+  margin-top: var(--space-6);
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(242, 242, 243, 0.75);
+}
+
+.spec-note-label {
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+  font-size: 11px;
+}
+
+.donate-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.amount-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-neutral-600);
+  margin: 0;
+}
+
+.other-amount {
+  width: 100%;
+}
+
+.form-footnote {
+  font-size: 12px;
+  color: var(--color-neutral-600);
+  margin: 0;
+}
+
+.form-intro {
+  max-width: 44ch;
+  color: var(--color-neutral-700);
+  font-size: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}

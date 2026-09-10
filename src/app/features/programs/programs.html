@@ -1,0 +1,39 @@
+<section class="section">
+  <p class="section-eyebrow">Programs</p>
+  <h1 class="page-title">Areas of work</h1>
+  <p class="section-lede">
+    Objectives, activities and results for each programme. Figures and outcomes below are
+    placeholder — client to confirm.
+  </p>
+</section>
+
+<section class="section">
+  <div class="grid-3">
+    @for (program of programs; track program.slug) {
+      <app-card class="card-flush">
+        <div class="duotone program-image">
+          <img
+            [ngSrc]="program.image"
+            [width]="program.imageWidth"
+            [height]="program.imageHeight"
+            [alt]="program.imageAlt"
+          />
+        </div>
+        <div class="program-copy">
+          <div class="program-number">{{ program.order }}</div>
+          <h3>{{ program.title }}</h3>
+          <p class="program-summary">{{ program.summary }}</p>
+
+          <div class="program-field-label">Objectives</div>
+          <p class="program-field-value">{{ program.objectives }}</p>
+
+          <div class="program-field-label">Activities</div>
+          <p class="program-field-value">{{ program.activities }}</p>
+
+          <div class="program-field-label">Impact / results</div>
+          <p class="program-field-value program-field-value--last">{{ program.impact }}</p>
+        </div>
+      </app-card>
+    }
+  </div>
+</section>

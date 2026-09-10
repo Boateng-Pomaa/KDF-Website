@@ -1,0 +1,73 @@
+<section class="section">
+  <p class="section-eyebrow">Contact</p>
+  <h1 class="page-title">Get in touch</h1>
+  <p class="section-lede">
+    Questions, media requests or general enquiries — reach us directly or send a message.
+  </p>
+</section>
+
+<section class="split">
+  <div>
+    <p class="section-eyebrow">Contact information</p>
+    <div class="contact-details">
+      <div>Takoradi, Ghana</div>
+      <div><a href="mailto:hello@kdf.org">hello&#64;kdf.org</a></div>
+      <div><a href="tel:+233200000000">+233 20 000 0000</a></div>
+    </div>
+
+    <p class="section-eyebrow">Follow</p>
+    <div class="follow-list">
+      <span>Facebook — link to be supplied</span>
+      <span>Instagram — link to be supplied</span>
+      <span>X — link to be supplied</span>
+      <span>LinkedIn — link to be supplied</span>
+    </div>
+
+    <app-card class="map-placeholder">Map placeholder — embed to be added</app-card>
+  </div>
+
+  <div>
+    <p class="section-eyebrow">Send a message</p>
+    <form [formGroup]="contactForm" (submit)="onSubmit(); $event.preventDefault()">
+      <app-field
+        label="Name"
+        placeholder="Full name"
+        formControlName="name"
+        required
+        [invalid]="isInvalid(contactForm, 'name')"
+        [hint]="isInvalid(contactForm, 'name') ? 'Please enter your name.' : ''"
+      />
+      <app-field
+        label="Email"
+        type="email"
+        placeholder="you@example.com"
+        formControlName="email"
+        required
+        [invalid]="isInvalid(contactForm, 'email')"
+        [hint]="isInvalid(contactForm, 'email') ? 'Please enter a valid email.' : ''"
+      />
+      <app-field
+        label="Subject"
+        placeholder="What's this about?"
+        formControlName="subject"
+        required
+        [invalid]="isInvalid(contactForm, 'subject')"
+        [hint]="isInvalid(contactForm, 'subject') ? 'Please add a subject.' : ''"
+      />
+      <app-field
+        label="Message"
+        placeholder="Tell us more"
+        formControlName="message"
+        required
+        [invalid]="isInvalid(contactForm, 'message')"
+        [hint]="isInvalid(contactForm, 'message') ? 'Please add a message.' : ''"
+      />
+      <button appButton variant="primary" type="submit">Send message</button>
+      @if (submitted()) {
+        <p class="status-message" role="status">
+          Thanks — submissions aren't connected yet; this will be wired up in Phase 4.
+        </p>
+      }
+    </form>
+  </div>
+</section>
