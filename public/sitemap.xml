@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Placeholder domain (kdf-foundation.example) — replace every <loc> below
+  with the real production domain before Phase 10 launch, and update
+  robots.txt's Sitemap: line to match.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://kdf-foundation.example/</loc>
+  </url>
+  <url>
+    <loc>https://kdf-foundation.example/about</loc>
+  </url>
+  <url>
+    <loc>https://kdf-foundation.example/programs</loc>
+  </url>
+  <url>
+    <loc>https://kdf-foundation.example/news</loc>
+  </url>
+  <url>
+    <loc>https://kdf-foundation.example/gallery</loc>
+  </url>
+  <url>
+    <loc>https://kdf-foundation.example/contact</loc>
+  </url>
+</urlset>

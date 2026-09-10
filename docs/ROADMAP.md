@@ -179,13 +179,41 @@ Verified: `ng build` and `ng test` still pass with the Firebase providers regist
       file for a genuinely unknown URL — the Node server fell through to Express's raw
       "Cannot GET" page instead of the styled `NotFound` component. Split into explicit
       `Prerender` entries per known route plus `RenderMode.Server` for the true `**` fallback.
-- [ ] Performance pass — verify lazy loading, image optimization, Lighthouse scores.
-- [ ] SEO (meta tags, sitemap, structured data) if in scope. Noted in passing: the 404 page now
-      renders correctly but still returns HTTP 200 (a "soft 404") rather than 404 — fine for
-      users, not ideal for search engines; revisit here.
+- [x] **Lighthouse performance pass**, run against the real SSR server (mobile, throttled —
+      Lighthouse's default profile: 4x CPU slowdown, simulated slow 4G).
+  - Fixed (the big one): the three reference photos and the logo were used completely
+    unoptimized — `kdf-logo.png` was a 1600×1600, 2.36 MB PNG displayed at 38px; the two
+    "reference photo" PNGs were 1.1 MB+ each. Resized to their actual maximum on-page display
+    size and re-encoded (logo stays PNG at 128×128; the two photos convert PNG→JPEG, since
+    they're photographic content) via `sharp`. Total page image weight: **~4.9 MB → ~320 KB**
+    (Home's total page weight: 5,677 KiB → 1,218 KiB). All `image`/`imageWidth`/`imageHeight`
+    references updated in `site-content.ts` and the two templates (`home.html`, `about.html`)
+    that reference these files directly.
+  - Result: **Performance 53 → 96 on About** (a representative page) and other lighter routes;
+    **Home stays lower (~56)** — confirmed by comparison, not a residual bug: Home is simply the
+    densest page (hero + 4 stat cards + 5 program cards + 3 news cards + founder section + 3
+    gallery images + all three engagement forms in one page), so hydration/style-layout cost
+    scales with it under 4x CPU throttling. A further pass — e.g. `@defer` blocks for
+    below-the-fold Home sections — would target this specifically; flagging as a candidate
+    follow-up rather than doing it unprompted.
+  - Accessibility, Best Practices: 100 (unchanged, confirms the axe fixes above).
+- [x] **SEO pass**: 83 → **100**.
+  - Added a per-route meta description (and a `noindex, nofollow` robots tag for `/admin` and the
+    404 page) via a small `AppTitleStrategy` (`core/seo/`) extending Angular Router's
+    `DefaultTitleStrategy` — the same documented extension point used for per-route titles,
+    now also driving `Meta`. Real, distinct copy per public route, not one generic tag.
+  - Added `public/robots.txt` (disallows `/admin`) and `public/sitemap.xml` (the six public
+    routes). Both use a placeholder `kdf-foundation.example` domain — **replace with the real
+    production domain in both files before Phase 10 launch.**
+  - Noted, not fixed: the 404 page renders correctly (see above) but still returns HTTP 200 (a
+    "soft 404") rather than 404 — fine for users, not ideal for search engines; a candidate for
+    a future pass if it matters before launch.
 - [ ] Security review — Firestore rules, admin access boundaries, form spam/rate limiting.
 - [ ] Backup/recovery plan for Firestore + Storage.
 - [ ] Browser compatibility check.
+
+Verified: `ng build` and `ng test` pass; axe audit re-confirmed clean after the image/SEO
+changes. Added `sharp` and `lighthouse` as dev dependencies for this pass.
 
 Verified: `ng build`, `ng test`, and a full re-run of the axe audit all pass after the fixes above.
 

@@ -36,6 +36,7 @@ yarn-error.log
 /coverage
 /libpeerconnection.log
 /.playwright-mcp
+/.lighthouse-reports
 testem.log
 /typings
 __screenshots__/

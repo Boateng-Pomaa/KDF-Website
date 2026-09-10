@@ -14,13 +14,14 @@ import {
 } from './content.models';
 
 /** The three reference photos supplied with the prototype, with their intrinsic
- *  pixel dimensions (required by `NgOptimizedImage`). */
-const CLEANUP_1 = { image: 'images/cleanup-1.jpg', imageWidth: 1232, imageHeight: 816 } as const;
-const GROUP_WIDE = { image: 'images/group-wide.png', imageWidth: 1143, imageHeight: 702 } as const;
+ *  pixel dimensions (required by `NgOptimizedImage`). Resized/compressed for
+ *  web delivery — see docs/ROADMAP.md Phase 9 (originals were 1.1-2.4 MB PNGs). */
+const CLEANUP_1 = { image: 'images/cleanup-1.jpg', imageWidth: 900, imageHeight: 596 } as const;
+const GROUP_WIDE = { image: 'images/group-wide.jpg', imageWidth: 1000, imageHeight: 614 } as const;
 const TEAM_PORTRAIT = {
-  image: 'images/team-portrait.png',
-  imageWidth: 810,
-  imageHeight: 1080,
+  image: 'images/team-portrait.jpg',
+  imageWidth: 750,
+  imageHeight: 1000,
 } as const;
 
 export const IMPACT_STATS: ImpactStat[] = [
