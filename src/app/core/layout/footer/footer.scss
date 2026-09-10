@@ -19,6 +19,13 @@
   margin: 0;
 }
 
+/* .btn-secondary's global style is dark text on a light background, which
+   reads as invisible here — this band is dark with light text. */
+.footer-cta .btn-secondary {
+  color: var(--color-bg);
+  border-color: rgba(242, 242, 243, 0.4);
+}
+
 .footer-cta-actions {
   display: flex;
   gap: var(--space-3);
@@ -74,7 +81,7 @@
 }
 
 .footer-social-placeholder {
-  color: var(--color-neutral-500);
+  color: var(--color-neutral-600);
 }
 
 .footer-bottom {

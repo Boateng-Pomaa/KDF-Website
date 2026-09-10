@@ -149,14 +149,45 @@ Verified: `ng build` and `ng test` still pass with the Firebase providers regist
 
 ---
 
-## Phase 9 — Non-Functional Hardening
+## Phase 9 — Non-Functional Hardening 🚧
 
-- [ ] Full AXE + WCAG AA audit across public site and admin.
+- [x] **Full AXE + WCAG AA audit across the public site and admin placeholder** — every route
+      (Home, About, Programs, News listing + detail, Gallery default + filtered, Contact +
+      validation-error state, Admin, 404) checked against `axe-core` with the `wcag2a`,
+      `wcag2aa`, `wcag21aa` rule sets, against the real SSR server (not just the static prerender
+      output). Zero violations after fixes below.
+  - Fixed: `--color-neutral-600` (muted body text, used almost everywhere) was `#7a7a7d` —
+    3.82:1 against the page background, failing the 4.5:1 text minimum. Darkened to `#6b6b6e`
+    (~4.75:1). The two remaining `--color-neutral-500` *text* usages were moved onto the fixed
+    600 step, since 500 is too light to pass at any reasonable text weight against this
+    background.
+  - Fixed: `.btn-primary` and the active donate-frequency tab used `--color-bg` as text-on-accent
+    colour — 4.47:1 against `--color-accent`, just under 4.5:1. Introduced `--color-on-accent`
+    (`#fff`) and switched both to it.
+  - Fixed (severe): the footer's dark CTA band rendered its "Volunteer" link in near-black text
+    on a near-black background (1.05:1, effectively invisible) — `.btn-secondary`'s global dark
+    text was overriding the light text the dark band needs. The prototype had hand-overridden
+    this exact instance; the override was lost in the Phase 1 rebuild. Restored, scoped to
+    `.footer-cta .btn-secondary`.
+  - Found and fixed two SSR bugs uncovered only by testing the actual `node server.mjs` server
+    (not just `ng build`'s own prerender step, which doesn't exercise this code path):
+    - `angular.json`'s `security.allowedHosts` was `[]`, silently rejecting every request's Host
+      header and degrading every non-Home route to a client-only shell with the wrong title
+      (SSR was effectively broken for the whole site). Set to `["localhost"]` for local
+      testing — **the real production domain must be added here before Phase 10 launch.**
+    - `app.routes.server.ts` gave the wildcard route `RenderMode.Prerender`, which has no static
+      file for a genuinely unknown URL — the Node server fell through to Express's raw
+      "Cannot GET" page instead of the styled `NotFound` component. Split into explicit
+      `Prerender` entries per known route plus `RenderMode.Server` for the true `**` fallback.
 - [ ] Performance pass — verify lazy loading, image optimization, Lighthouse scores.
-- [ ] SEO (meta tags, sitemap, structured data) if in scope.
+- [ ] SEO (meta tags, sitemap, structured data) if in scope. Noted in passing: the 404 page now
+      renders correctly but still returns HTTP 200 (a "soft 404") rather than 404 — fine for
+      users, not ideal for search engines; revisit here.
 - [ ] Security review — Firestore rules, admin access boundaries, form spam/rate limiting.
 - [ ] Backup/recovery plan for Firestore + Storage.
 - [ ] Browser compatibility check.
+
+Verified: `ng build`, `ng test`, and a full re-run of the axe audit all pass after the fixes above.
 
 ---
 
