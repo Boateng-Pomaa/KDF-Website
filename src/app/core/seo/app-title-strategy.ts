@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { DefaultTitleStrategy, RouterStateSnapshot } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 const DEFAULT_DESCRIPTION =
   'Kuukua Davis Foundation — community clean-ups, donation drives and neighbourhood support across Ghana.';
@@ -25,7 +26,9 @@ export class AppTitleStrategy extends DefaultTitleStrategy {
     }
 
     const description = (route.data['description'] as string | undefined) ?? DEFAULT_DESCRIPTION;
-    const robots = (route.data['robots'] as string | undefined) ?? 'index, follow';
+    const robots = environment.indexable
+      ? ((route.data['robots'] as string | undefined) ?? 'index, follow')
+      : 'noindex, nofollow';
 
     this.meta.updateTag({ name: 'description', content: description });
     this.meta.updateTag({ name: 'robots', content: robots });
