@@ -52,11 +52,13 @@ export interface ImpactStat {
 
 export interface CoreValue {
   readonly title: string;
-  readonly description: string;
+  readonly description?: string;
 }
 
 export interface TeamMember {
   readonly initials: string;
   readonly name: string;
   readonly role: string;
+  /** Square headshot under public/, shown in place of the initials tile when set. */
+  readonly photo?: string;
 }

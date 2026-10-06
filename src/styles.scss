@@ -470,6 +470,16 @@ button {
   margin-bottom: var(--space-3);
 }
 
+.avatar-photo {
+  display: block;
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--color-divider);
+  margin-bottom: var(--space-3);
+}
+
 .person-name {
   font-family: var(--font-heading);
   font-weight: 600;

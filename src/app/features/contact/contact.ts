@@ -1,13 +1,12 @@
 import { ChangeDetectionStrategy, Component, WritableSignal, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Button } from '../../shared/ui/button/button';
-import { Card } from '../../shared/ui/card/card';
 import { Field } from '../../shared/ui/field/field';
 
 @Component({
   selector: 'app-contact',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [ReactiveFormsModule, Button, Card, Field],
+  imports: [ReactiveFormsModule, Button, Field],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })

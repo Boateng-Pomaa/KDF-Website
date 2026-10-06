@@ -154,27 +154,36 @@ export const GALLERY_PHOTOS: GalleryPhoto[] = [
 ];
 
 export const CORE_VALUES: CoreValue[] = [
-  { title: 'Integrity', description: 'Placeholder description.' },
-  { title: 'Empowerment', description: 'Placeholder description.' },
-  { title: 'Service', description: 'Placeholder description.' },
-  { title: 'Equality', description: 'Placeholder description.' },
-  { title: 'Compassion', description: 'Placeholder description.' },
-  { title: 'Accountability', description: 'Placeholder description.' },
-  { title: 'Sustainability', description: 'Placeholder description.' },
-  { title: 'Collaboration', description: 'Placeholder description.' },
-  { title: 'Leadership', description: 'Placeholder description.' },
-  { title: 'Excellence', description: 'Placeholder description.' },
+  { title: 'Integrity' },
+  { title: 'Empowerment' },
+  { title: 'Service' },
+  { title: 'Equality' },
+  { title: 'Compassion' },
+  { title: 'Accountability' },
+  { title: 'Sustainability' },
+  { title: 'Collaboration' },
+  { title: 'Leadership' },
+  { title: 'Excellence' },
 ];
 
 export const BOARD_MEMBERS: TeamMember[] = [
-  { initials: 'PN', name: 'Placeholder Name', role: 'Board Chair' },
-  { initials: 'PN', name: 'Placeholder Name', role: 'Vice Chair' },
-  { initials: 'PN', name: 'Placeholder Name', role: 'Treasurer' },
-  { initials: 'PN', name: 'Placeholder Name', role: 'Trustee' },
+  { initials: 'FD', name: 'Francisca Kuukua Davis', role: 'Founder', photo: 'images/founder.jpg' },
+  { initials: 'AA', name: 'Abraham Kojo Ayensu', role: 'Director', photo: 'images/team/ayensu.jpg' },
+  {
+    initials: 'KT',
+    name: 'Kwesi Kwakye Teming-Amoako',
+    role: 'Board Member',
+    photo: 'images/team/teming-amoako.jpg',
+  },
+  { initials: 'DE', name: 'Dionysius F. Eshun', role: 'Board Member', photo: 'images/team/eshun.jpg' },
 ];
 
 export const STAFF_MEMBERS: TeamMember[] = [
-  { initials: 'PN', name: 'Placeholder Name', role: 'Executive Director' },
-  { initials: 'PN', name: 'Placeholder Name', role: 'Programs Manager' },
-  { initials: 'PN', name: 'Placeholder Name', role: 'Volunteer Coordinator' },
+  { initials: 'FD', name: 'Francisca Kuukua Davis', role: 'CEO', photo: 'images/founder.jpg' },
+  {
+    initials: 'RQ',
+    name: 'Regina Atta Quaicoe',
+    role: 'Volunteer Member',
+    photo: 'images/team/quaicoe.jpg',
+  },
 ];
