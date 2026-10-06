@@ -13,9 +13,11 @@ export const serverRoutes: ServerRoute[] = [
   // Anything else (a genuinely unmatched URL) has no prerendered file to
   // serve, so it must be rendered on demand — otherwise the Node server falls
   // through to Express's generic "Cannot GET" page instead of our NotFound
-  // component.
+  // component. `status: 404` makes it a real 404 rather than a "soft 404"
+  // (styled not-found page served with HTTP 200), so search engines drop it.
   {
     path: '**',
-    renderMode: RenderMode.Server
-  }
+    renderMode: RenderMode.Server,
+    status: 404,
+  },
 ];
